@@ -26,3 +26,36 @@ create table usr_usuarios
     usr_email varchar(100) not null,
     usr_senha varchar(100) not null
 );
+
+set global time_zone = '-3:00';
+
+delete from tar_tarefas;
+
+alter table tar_tarefas add column usr_id int not null;
+
+alter table tar_tarefas add constraint fk_tar_tarefas_usr_usuarios FOREIGN KEY (usr_id) REFERENCES usr_usuarios(usr_id);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
