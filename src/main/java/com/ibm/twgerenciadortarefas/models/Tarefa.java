@@ -1,5 +1,9 @@
 package com.ibm.twgerenciadortarefas.models;
 
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -8,14 +12,17 @@ import java.util.Date;
 public class Tarefa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "tar_id")
     private Long id;
+
     @Column(name = "tar_titulo", length = 50, nullable = false)
+    @NotNull(message = "O campo título é obrigatório.")
     private String titulo;
     @Column(name = "tar_descricao", length = 100, nullable = true)
     private String descricao;
-    @Column(name = "tar_dataExpiracao", nullable = false)
+    @Column(name = "tar_data_expiracao", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataExpiracao;
     @Column(name = "tar_concluida", nullable = false)
     private boolean concluida = false;
