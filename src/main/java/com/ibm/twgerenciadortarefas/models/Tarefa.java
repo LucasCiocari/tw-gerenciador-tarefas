@@ -1,10 +1,10 @@
 package com.ibm.twgerenciadortarefas.models;
 
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
-
-
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -18,12 +18,17 @@ public class Tarefa {
 
     @Column(name = "tar_titulo", length = 50, nullable = false)
     @NotNull(message = "O campo título é obrigatório.")
+    @Length(max=50, min=3, message = "O título deve ter entre 3 e 50 caracteres.")
     private String titulo;
+    
+    @Length(max=100, message="A descrição deve ter até 100 caracteres.")
     @Column(name = "tar_descricao", length = 100, nullable = true)
     private String descricao;
+    
     @Column(name = "tar_data_expiracao", nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataExpiracao;
+    
     @Column(name = "tar_concluida", nullable = false)
     private boolean concluida = false;
 
