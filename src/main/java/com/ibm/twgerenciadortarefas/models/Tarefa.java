@@ -31,8 +31,20 @@ public class Tarefa {
     
     @Column(name = "tar_concluida", nullable = false)
     private boolean concluida = false;
+    
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usr_id")
+    private Usuario usuario;
 
-    public Long getId() {
+    public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Long getId() {
         return id;
     }
 
