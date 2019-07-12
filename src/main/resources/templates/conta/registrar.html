@@ -12,7 +12,6 @@
 	</nav>
 	<div class="container">
 		<h3>Inserção de usuário</h3>
-
 		<form class="form-horizontal" action="/registration" method="post"
 			th:object="${usuario}">
 			<div class="row">
@@ -35,13 +34,9 @@
 						th:field="*{senha}">
 				</div>
 			</div>
-
 			<button type="submit" class="btn btn-primary">Registrar</button>
-
-
 		</form>
 	</div>
-
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
