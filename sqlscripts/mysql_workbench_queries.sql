@@ -8,7 +8,8 @@ create table tar_tarefas
     tar_titulo VARCHAR(50) NOT NULL,
     tar_descricao VARCHAR(100) DEFAULT NULL,
     tar_data_expiracao DATE NOT NULL,
-    tar_concluida BIT DEFAULT FALSE
+    tar_concluida BIT DEFAULT FALSE,
+    usr_id INT NOT NULL
 );
 
 insert into tar_tarefas(tar_titulo, tar_descricao, tar_data_expiracao)

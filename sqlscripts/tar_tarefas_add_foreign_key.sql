@@ -1,0 +1,1 @@
+alter table tar_tarefas add constraint fk_tar_tarefas_usr_usuarios FOREIGN KEY (usr_id) REFERENCES usr_usuarios(usr_id);
