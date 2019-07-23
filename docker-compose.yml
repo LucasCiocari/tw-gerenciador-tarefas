@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  mysql-db:
+    image: mysql-db
+    build:
+      dockerfile: mysql.Dockerfile
+      context: ./sqlscripts/
+    networks: 
+      - production-network
+    container_name: mysql_db
+      
+  spring:
+    image: spring
+    build:
+      dockerfile: gerenciador.Dockerfile
+      context: ./gerenciador/
+    ports:
+      - "8080:8080"
+    networks: 
+      - production-network
+    container_name: spring
+    depends_on: [mysql-db]
+
+networks: 
+  production-network:
+    driver: bridge
